@@ -1,0 +1,20 @@
+
+Here it is!  Our buddy buddy oh-my-zsh incarnation of our Super-shared project.
+
+Once you've cloned you want to do the following things:
+
+1) Set up your .zshrc as noted in the oh-my-zsh README
+2) Add your custom zsh config stuff to the custom/ directory.  This may be:
+   the private curve shared stuff; your personal configuration that you didn't want to share as a plugin; any local server configuration.
+
+   Here's a sample listing of my custom directory:
+        [dale@curvedev: .oh-my-zsh (master)] cd custom
+        [dale@curvedev: custom (master)] lt
+        total 16K
+        -rw-r--r--  1 dale dale  153 2010-12-20 13:02 example.zsh
+        lrwxrwxrwx  1 dale dale   26 2010-12-20 13:17 dale.zsh -> /home/dale/.config/dale.sh
+        lrwxrwxrwx  1 dale dale   32 2010-12-20 13:18 curve.zsh -> /home/dale/.curveconfig/curve.sh
+        -rw-r--r--  1 dale dale   32 2010-12-20 13:25 local_config.zsh
+        drwxr-xr-x  2 dale dale 4.0K 2010-12-20 13:25 .
+        drwxr-xr-x 10 dale dale 4.0K 2010-12-20 13:29 ..
+
