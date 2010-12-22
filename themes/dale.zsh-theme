@@ -1,6 +1,6 @@
 autoload colors; colors
 
-for COLOR in RED GREEN BLUE YELLOW WHITE BLACK CYAN; do
+for COLOR in RED GREEN BLUE YELLOW WHITE BLACK CYAN MAGENTA; do
     eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'
     eval PR_BRIGHT_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
 done
@@ -12,7 +12,7 @@ get_prompt() {
     postfix="${PR_WHITE}$(git_prompt_info)] "
     case $(get_location) in
         'ACTIVE_PROJECT')
-            echo "${prefix}${PR_BLUE}${PROJECT}${postfix}"
+            echo "${prefix}${PR_MAGENTA}${PROJECT}${postfix}"
             ;;
         'GIT_PROJECT')
             project_name=`basename $(git rev-parse --show-toplevel 2> /dev/null)`
