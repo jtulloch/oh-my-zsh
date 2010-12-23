@@ -30,3 +30,5 @@ function current_branch() {
 alias ggpull='git pull origin $(current_branch)'
 alias ggpush='git push origin $(current_branch)'
 alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
+
+alias groot='git_root=$(git rev-parse --show-toplevel 2> /dev/null) && cd ${git_root}'
