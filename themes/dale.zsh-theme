@@ -7,21 +7,32 @@ done
 
 PR_RESET="%{${reset_color}%}";
 
+MODE_INDICATOR='command_mode'
 get_prompt() {
-    prefix="[${PR_GREEN}%n${PR_WHITE}%M@: "
-    postfix="${PR_WHITE}$(git_prompt_info)] "
     case $(get_location) in
         'ACTIVE_PROJECT')
-            echo "${prefix}${PR_MAGENTA}${PROJECT}${postfix}"
+            prmpt="${PR_MAGENTA}${PROJECT}"
             ;;
         'GIT_PROJECT')
             project_name=`basename $(git rev-parse --show-toplevel 2> /dev/null)`
-            echo "${prefix}${PR_RED}${project_name}${postfix}"
+            prmpt="${PR_RED}${project_name}"
             ;;
         *)
-            echo "${prefix}${PR_YELLOW}%2d${postfix}"
+            prmpt="${PR_YELLOW}%2d"
             ;;
     esac
+
+
+    prefix="${PR_GREEN}[%n${PR_WHITE}%M@: "
+
+    vi_mode=$(vi_mode_prompt_info)
+    postfix_color="${PR_GREEN}"
+    if [ "${vi_mode}" = "command_mode" ]; then
+        postfix_color="${PR_BRIGHT_MAGENTA}"
+    fi
+    postfix="${PR_WHITE}$(git_prompt_info)${postfix_color}]${PR_RESET} "
+
+    echo "${prefix}${prmpt}${postfix}"
 }
 
 get_rprompt() {
