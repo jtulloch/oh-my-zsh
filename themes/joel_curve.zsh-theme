@@ -12,7 +12,7 @@ MODE_INDICATOR="command_mode"
 get_prompt() {
     CURRENTPATH=`pwd`
     if [ "${CURVEPROJECT}" = "" ]; then
-        prmpt="${PR_BLUE}%n@%m${PR_RESET}${PR_CYAN}$(git_prompt_info)${PR_RESET}"
+        prmpt="${PR_CYAN}%n@%m${PR_RESET}${PR_CYAN}$(git_prompt_info)${PR_RESET}"
     else
         BASELOCATION=`basename ${CURRENTPATH}`
         TEMPLOCATION=${CURRENTPATH##${CURVESPACE}/${CURVEPROJECT}}
