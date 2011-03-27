@@ -1,3 +1,5 @@
+return
+
 case "$TERM" in
   xterm*|rxvt*)
     preexec () {

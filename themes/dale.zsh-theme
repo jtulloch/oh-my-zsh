@@ -11,7 +11,7 @@ MODE_INDICATOR='command_mode'
 get_prompt() {
     case $(get_location) in
         'ACTIVE_PROJECT')
-            prmpt="${PR_MAGENTA}${PROJECT}"
+            prmpt="%{\e[38;05;213m%}${PROJECT}"
             ;;
         'GIT_PROJECT')
             project_name=`basename $(git rev-parse --show-toplevel 2> /dev/null)`
