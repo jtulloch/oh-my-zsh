@@ -7,8 +7,6 @@ done
 
 PR_RESET="%{${reset_color}%}";
 
-MODE_INDICATOR="command_mode"
-
 get_prompt() {
     CURRENTPATH=`pwd`
     if [ "${CURVEPROJECT}" = "" ]; then
@@ -35,14 +33,8 @@ get_prompt() {
         ;;
         esac
     fi
-    mode=$(vi_mode_prompt_info)
-    command_indicator="(i)"
 
-    if [ "$mode" = "command_mode" ]; then
-        command_indicator="(c)"
-    fi
-
-    prmpt="${prmpt}${command_indicator}${PR_GREEN}->${PR_RESET}"
+    prmpt="${prmpt}${PR_GREEN}->${PR_RESET}"
     echo $prmpt
 }
 
@@ -56,5 +48,5 @@ RPROMPT='$(get_right_prompt)'
 # git theming default: Variables for theming the git info prompt
 ZSH_THEME_GIT_PROMPT_PREFIX="(" 
 ZSH_THEME_GIT_PROMPT_SUFFIX="${PR_CYAN})${PR_RESET}" 
-ZSH_THEME_GIT_PROMPT_DIRTY="${PR_RED}*${PR_RESET}"
-ZSH_THEME_GIT_PROMPT_CLEAN="" 
+ZSH_THEME_GIT_PROMPT_DIRTY="${PR_RED}✗${PR_RESET}"
+ZSH_THEME_GIT_PROMPT_CLEAN="${PR_GREEN}✓${PR_RESET}" 
